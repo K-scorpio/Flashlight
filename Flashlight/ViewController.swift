@@ -9,6 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+        var isOn = false
+
+    @IBOutlet weak var flashlightButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,10 +22,28 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        print("Hey hey")
+        
     }
-    
-    
 
+    
+    @IBAction func offButton(sender: AnyObject) {
+
+        if isOn {
+
+            self.isOn = false
+            
+            self.flashlightButton.setTitle("ON", forState: .Normal)
+            self.flashlightButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            self.view.backgroundColor = UIColor.blackColor()
+        } else {
+            
+            self.isOn = true
+            self.flashlightButton.setTitle("OFF", forState: .Normal)
+            self.flashlightButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+            self.view.backgroundColor = UIColor.whiteColor()
+
+            
+        }
+    }
 }
 
